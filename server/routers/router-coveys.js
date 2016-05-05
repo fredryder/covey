@@ -3,6 +3,8 @@ const Coveys = require('../collections/coveys.js');
 const knex = require('../config/config.js').knex;
 
 exports.addCovey = (req, res) => {
+  console.log('In addCovey');
+
   const userId = req.body.userId;
   const name = req.body.name;
   const startTime = req.body.startTime;
@@ -50,6 +52,7 @@ exports.getAllCoveys = (req, res) => {
       res.status(200).json(coveys);
     })
     .catch((err) => {
+      console.log('In getAllCoveys');
       res.status(404).json(err);
     });
 };
